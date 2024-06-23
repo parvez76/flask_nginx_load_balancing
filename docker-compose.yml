@@ -1,0 +1,30 @@
+version: '3'
+
+services:
+  flask-app1:
+    build:
+      context: ./app  # Build context for Flask app 1
+    expose:
+      - "5000"  # Expose port 5000 for internal communication
+    networks:
+      - app-network  # Connect to the 'app-network' bridge network
+
+  flask-app2:
+    build:
+      context: ./app  # Build context for Flask app 2
+    expose:
+      - "5000"  # Expose port 5000 for internal communication
+    networks:
+      - app-network  # Connect to the 'app-network' bridge network
+
+  nginx:
+    build:
+      context: ./lb  # Build context for Nginx
+    ports:
+      - "8080:80"  # Map host port 8080 to container port 80 for external access
+    networks:
+      - app-network  # Connect to the 'app-network' bridge network
+
+networks:
+  app-network:
+    driver: bridge  # Use the bridge network driver for 'app-network'
