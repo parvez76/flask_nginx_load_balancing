@@ -6,22 +6,6 @@ Prerequisites:
 Docker
 Docker Compose
 
-
-Project Structure:
-
-project-root/
-│
-├── app/
-│   ├── Dockerfile       # Dockerfile for Flask application
-│   └── main.py          # Flask application code
-│
-├── lb/
-│   ├── Dockerfile       # Dockerfile for Nginx
-│   └── nginx.conf       # Nginx configuration file
-│
-└── docker-compose.yml   # Docker Compose configuration file
-
-
 How to Use:
 Clone the Repository
 git clone <repository-url>
